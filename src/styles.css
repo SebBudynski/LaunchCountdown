@@ -9,7 +9,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(assets/images/pattern-hills.svg) no-repeat bottom;
+  background:  url(assets/images/pattern-hills.svg)  no-repeat bottom ,url(assets/images/bg-stars.svg);
   background-color: hsl(234, 17%, 12%);
   font-family: "Red Hat Text", sans-serif;
   font-weight: 700;
