@@ -14,20 +14,22 @@ export class CountdownComponent implements OnInit {
   countdownFunction: any;
 
   ngOnInit() {
-    this.countdownFunction = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = this.countdownDate - now;
+    this.updateCountdown();
+    this.countdownFunction = setInterval(() => this.updateCountdown(), 1000);
+  }
+  updateCountdown() {
+    const now = new Date().getTime();
+    const distance = this.countdownDate - now;
 
-      this.days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      this.hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      this.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      this.seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    this.days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    this.hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    this.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    this.seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-
-      if (distance < 0) {
-        clearInterval(this.countdownFunction);
-      }
-
-    }, 1000);
+    if (distance < 0) {
+      clearInterval(this.countdownFunction);
+    }
   }
 }
